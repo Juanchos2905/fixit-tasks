@@ -12,8 +12,6 @@ import java.util.List;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface ITaskEntityMapper {
 
-
-
     TaskEntity toEntity(Task task);
 
     Task toDomain(TaskEntity taskEntity);

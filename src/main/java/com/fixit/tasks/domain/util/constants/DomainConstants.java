@@ -21,4 +21,10 @@ public final class DomainConstants {
     public static final String AUTO_ASSIGN_URGENT_TASKS_MESSAGE = "Assigned %d tasks. %d pending urgent tasks remain";
     public static final String NO_MASTER_TECHNICIANS_AVAILABLE_MESSAGE = "No Master technicians available to assign urgent tasks.";
     public static final String TECHNICIAN_SAME_CATEGORY_MESSAGE = "Technician with ID %d already has category %s.";
+    public static final String FEIGN_INVALID_REQUEST = "Invalid request data sent to User Service.";
+    public static final String FEIGN_NOT_FOUND = "User or Role not found in User Service.";
+    public static final String FEIGN_ROLE_CONFLICT = "User already holds a role in this tournament.";
+    public static final String FEIGN_GENERIC_ERROR = "Generic error in User Microservice communication.";
+
+
 }

@@ -2,9 +2,14 @@ package com.fixit.tasks.domain.service;
 
 import com.fixit.tasks.domain.enums.TaskStatus;
 import com.fixit.tasks.domain.exceptions.*;
+import com.fixit.tasks.domain.model.MasterWithUrgentCount;
 import com.fixit.tasks.domain.model.Task;
+import com.fixit.tasks.domain.model.Technician;
 import com.fixit.tasks.domain.util.constants.DomainConstants;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -71,8 +76,8 @@ public class TaskDomainService {
     }
     public void validateStatusAssigned(Task task) {
         if (!task.getStatus().equals(TaskStatus.ASSIGNED)) {
-        throw new TaskMustBeAssignedToStartException(DomainConstants.TASK_MUST_BE_ASSIGNED_TO_START);
-    }
+            throw new TaskMustBeAssignedToStartException(DomainConstants.TASK_MUST_BE_ASSIGNED_TO_START);
+        }
     }
 
     public void validateStatusProgress(Task task) {

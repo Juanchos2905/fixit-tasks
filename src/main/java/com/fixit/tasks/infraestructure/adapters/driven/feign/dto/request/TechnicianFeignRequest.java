@@ -1,6 +1,6 @@
-package com.fixit.tasks.infraestructure.adapters.driving.rest.dto.response;
+package com.fixit.tasks.infraestructure.adapters.driven.feign.dto.request;
 
-import com.fixit.tasks.domain.enums.Role;
+
 import com.fixit.tasks.domain.enums.TechnicianCategory;
 import com.fixit.tasks.domain.enums.TechnicianStatus;
 import lombok.AllArgsConstructor;
@@ -12,18 +12,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TechnicianResponse {
-    private Long id;
-    private String dni;
-    private String name;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
-    private Role role;
+public class TechnicianFeignRequest {
 
     private TechnicianCategory category;
     private TechnicianStatus status;
     private Integer taskCount;
     private Integer currentPoints;
-    private Integer availablePoints;
+
 }
