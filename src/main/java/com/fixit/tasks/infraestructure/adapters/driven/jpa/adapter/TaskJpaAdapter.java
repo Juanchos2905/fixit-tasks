@@ -18,6 +18,11 @@ public class TaskJpaAdapter implements ITaskPersistencePort {
     private final ITaskEntityMapper taskEntityMapper;
 
     @Override
+    public List<Task> findByStatus(TaskStatus status) {
+        return List.of();
+    }
+
+    @Override
     public Task save(Task task) {
         return taskEntityMapper.toDomain(
                 taskRepository.save(taskEntityMapper.toEntity(task))
@@ -27,5 +32,31 @@ public class TaskJpaAdapter implements ITaskPersistencePort {
     @Override
     public long countUrgentTasksByTechnicianId(Long technicianId) {
         return taskRepository.countByTechnicianIdAndPriority(technicianId, TaskPriority.URGENT);
+    }
+
+    @Override
+    public List<Task> findByTechnicianId(Long technicianId) {
+        return  taskRepository.findByTechnicianId(technicianId).stream()
+                .map(taskEntityMapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public List<Task> findAll() {
+        return taskRepository.findAll()
+                .stream()
+                .map(taskEntityMapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public Optional<Task> findById(Long id) {
+        return taskRepository.findById(id)
+                .map(taskEntityMapper::toDomain);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        taskRepository.deleteById(id);
     }
 }

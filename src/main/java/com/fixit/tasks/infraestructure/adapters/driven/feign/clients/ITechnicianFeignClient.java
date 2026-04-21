@@ -4,7 +4,9 @@ import com.fixit.tasks.domain.enums.TechnicianCategory;
 import com.fixit.tasks.infraestructure.adapters.driven.feign.configuration.CustomFeignErrorDecoder;
 import com.fixit.tasks.infraestructure.adapters.driven.feign.dto.request.TechnicianFeignRequest;
 import com.fixit.tasks.infraestructure.adapters.driven.feign.dto.response.TechnicianFeignResponse;
+import com.fixit.tasks.infraestructure.adapters.driving.rest.dto.response.TechnicianResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,4 +29,7 @@ public interface ITechnicianFeignClient {
             @PathVariable("id") Long id,
             @RequestBody TechnicianFeignRequest technicianRequest
     );
+
+    @GetMapping("/{id}")
+    TechnicianFeignResponse getTechnicianById(@PathVariable Long id);
 }
